@@ -25,7 +25,7 @@ export const Dashboard = () => {
 
 
     return (
-        <main>
+        <main className="mt-3">
             <div>Dashboard</div>
 
             <section>

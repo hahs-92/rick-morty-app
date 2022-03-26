@@ -4,8 +4,8 @@ export const CharacterDetail = () => {
   const { id } = useParams()
 
   return (
-    <div>
+    <section>
         { id }
-    </div>
+    </section>
   )
 }
