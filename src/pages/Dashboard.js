@@ -19,12 +19,11 @@ export const Dashboard = () => {
     },[])
 
 
-    console.log(characters)
     return (
-        <main className="mt-3">
+        <main className="mt-3 p-3">
             <div>Dashboard</div>
 
-            <section>
+            <section className="grid sm:grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-4 xl:gap-4 ">
                 {
                     characters && characters.map(char => (
                         <Character
