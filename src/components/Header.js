@@ -22,7 +22,7 @@ export const Header = () => {
                     <li>
                         <NavLink
                             className= {({isActive}) => isActive ? "text-green-100" : "text-black"}
-                            to="/locations">Locations
+                            to="/categories">Categories
                         </NavLink>
                     </li>
                     <li>

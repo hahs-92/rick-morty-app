@@ -42,6 +42,56 @@ export const getCharactersSearch = (query) => async(dispatch) => {
     }
 }
 
+export const getCharactersByQuery = (query) => async(dispatch) => {
+    dispatch({
+        type: characterTypes.LOADING
+    })
+
+    try {
+        const {data: { results }} = await axios.get(query)
+
+        dispatch({
+            type: characterTypes.GET_CHARACTERS_BY_QUERY,
+            payload: results
+        })
+    } catch(e) {
+
+        dispatch({
+            type: characterTypes.ERROR
+        })
+    }
+}
+
+export const addCharacterToFavorites = (character) => async(dispatch) => {
+
+    try {
+        dispatch({
+            type: characterTypes.ADD_CHARACTER_FAV,
+            payload: character
+        })
+    } catch(e) {
+
+        dispatch({
+            type: characterTypes.ERROR
+        })
+    }
+}
+
+export const removeCharacterFromFavorites = (characterId) => async(dispatch) => {
+
+    try {
+        dispatch({
+            type: characterTypes.REMOVE_CHARACTER_DEV,
+            payload: characterId
+        })
+    } catch(e) {
+
+        dispatch({
+            type: characterTypes.ERROR
+        })
+    }
+}
+
 export const getCharacter = (query) => async(dispatch) => {
     dispatch({
         type: characterTypes.LOADING

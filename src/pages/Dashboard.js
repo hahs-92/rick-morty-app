@@ -14,6 +14,9 @@ export const Dashboard = () => {
     const characters = useSelector(state => state.characters)
     const  charactersSearched = useSelector(state => state.charactersSearched)
 
+    const favorites = useSelector(state => state.favorites)
+    console.log(favorites)
+
     const fecthData = () => {
         dispatch(getCharacters("https://rickandmortyapi.com/api/character/?page=1"))
     }

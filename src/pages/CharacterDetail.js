@@ -1,17 +1,31 @@
 import { useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
+import { HeartIcon } from '@heroicons/react/outline'
+import { HeartIcon as HeartIconSolid} from '@heroicons/react/solid'
 //actions creator
-import { getCharacter } from '../actions'
+import { getCharacter, addCharacterToFavorites, removeCharacterFromFavorites } from '../actions'
 import { useEffect } from 'react'
+import { useState } from 'react'
 
 
 export const CharacterDetail = () => {
-
   const { id } = useParams()
   const dispatch = useDispatch()
   const character = useSelector(state => state.character)
-  console.log(character)
+  const favorites = useSelector(state => state.favorites)
+  const [isFav, setIsFav] = useState(favorites.map(fav => fav.id).includes(parseInt(id)))
+
+  const handleFavorite = () => {
+    setIsFav(!isFav)
+    if(!isFav) {
+      dispatch(addCharacterToFavorites(character))
+      return
+    }
+    dispatch(removeCharacterFromFavorites(character.id))
+  }
+
+
   useEffect(() => {
     if(id) dispatch(getCharacter(`https://rickandmortyapi.com/api/character/${id}`))
   },[id])
@@ -20,7 +34,16 @@ export const CharacterDetail = () => {
     <main className='flex justify-center mt-10 p-5'>
       {
         character &&
-        <article className='max-w-3xl shadow-lg sm:flex gap-3'>
+        <article className='relative max-w-3xl shadow-lg sm:flex gap-3'>
+          <section
+            className='absolute h-8 w-8 right-1 top-1 cursor-pointer text-green-400'
+            onClick={ handleFavorite }
+          >
+            {
+              isFav ? <HeartIconSolid /> :  <HeartIcon />
+            }
+          </section>
+
           <section>
             <img
               src={character.image}

@@ -24,12 +24,34 @@ export const characterReducer = (state=INITAL_STATE, action) => {
                 error: false,
                 loading: false
             }
+        case characterTypes.GET_CHARACTERS_BY_QUERY:
+            return {
+                ...state,
+                charactersByQuery: action.payload,
+                error: false,
+                loading: false
+            }
         case characterTypes.GET_CHARACTER:
             return {
                 ...state,
                 character: action.payload,
                 error: false,
                 loading: false
+            }
+        case characterTypes.ADD_CHARACTER_FAV:
+            return {
+                ...state,
+                favorites: [
+                    ...state.favorites,
+                    action.payload
+                ],
+                error: false,
+            }
+        case characterTypes.REMOVE_CHARACTER_DEV:
+            return {
+                ...state,
+                favorites: state.favorites.filter(char => char.id !== action.payload),
+                error: false,
             }
         default:
             return state
