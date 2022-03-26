@@ -6,6 +6,7 @@ import { getCharacters } from '../actions'
 import { Character } from '../components/Character'
 import { Form } from "../components/Form"
 import { CharacterItem } from "../components/CharacterItem"
+import { ListCharacters } from "../components/ListCharacters"
 
 
 export const Dashboard = () => {
@@ -26,7 +27,7 @@ export const Dashboard = () => {
         <main className="mt-3 p-3">
 
             <Form />
-            <section className="grid sm:grid-cols-2 gap-2 mt-6 md:grid-cols-3 xl:grid-cols-5 xl:gap-4 ">
+            <ListCharacters>
                 {
                     charactersSearched && charactersSearched.map(char => (
                       <CharacterItem
@@ -37,8 +38,8 @@ export const Dashboard = () => {
                       />
                     ))
                 }
-            </section>
-            <section className="grid sm:grid-cols-2 gap-2 mt-6 md:grid-cols-3 xl:grid-cols-5 xl:gap-4 ">
+            </ ListCharacters>
+            <ListCharacters>
                 {
                     characters && characters.map(char => (
                         <Character
@@ -49,7 +50,7 @@ export const Dashboard = () => {
                         />
                     ))
                 }
-            </section>
+            </ListCharacters>
         </main>
     )
 }
