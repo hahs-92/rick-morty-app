@@ -1,20 +1,17 @@
 import { useEffect } from "react"
-import axios from 'axios'
-import { useState } from "react"
+import { useSelector, useDispatch } from "react-redux"
+//actions creator
+import { getCharacters } from '../actions'
 //components
 import { Character } from '../components/Character'
 
 
 export const Dashboard = () => {
-    const [ data, setData] = useState([])
+    const dispatch = useDispatch()
+    const characters = useSelector(state => state.characters)
 
-    const fecthData = async() => {
-        try {
-          const { data: { info, results }} = await axios.get("https://rickandmortyapi.com/api/character/?page=1")
-          setData(results)
-        } catch (error) {
-            console.error(error)
-        }
+    const fecthData = () => {
+        dispatch(getCharacters("https://rickandmortyapi.com/api/character/?page=1"))
     }
 
     useEffect(() => {
@@ -22,13 +19,14 @@ export const Dashboard = () => {
     },[])
 
 
+    console.log(characters)
     return (
         <main className="mt-3">
             <div>Dashboard</div>
 
             <section>
                 {
-                    data && data.map(char => (
+                    characters && characters.map(char => (
                         <Character
                             key={char.id }
                             id={ char.id }

@@ -8,7 +8,7 @@ export const getCharacters = (query) => async(dispatch) => {
     })
 
     try {
-        const { data: results } = await axios.get(query)
+        const {data: { results }} = await axios.get(query)
 
         dispatch({
             type: characterTypes.GET_CHARACTERS,
