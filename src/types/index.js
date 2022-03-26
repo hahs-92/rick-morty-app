@@ -1,5 +1,6 @@
 export const characterTypes = {
     GET_CHARACTERS: "GET_CHARACTERS",
+    GET_CHARACTER: "GET_CHARACTER",
     LOADING: "LOADING",
     ERROR: "ERROR",
     PAGECHANGE: "PAGECHANGE"

@@ -23,7 +23,7 @@ export const Dashboard = () => {
         <main className="mt-3 p-3">
             <div>Dashboard</div>
 
-            <section className="grid sm:grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-4 xl:gap-4 ">
+            <section className="grid sm:grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-5 xl:gap-4 ">
                 {
                     characters && characters.map(char => (
                         <Character

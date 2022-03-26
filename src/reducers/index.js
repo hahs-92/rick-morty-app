@@ -13,10 +13,17 @@ export const characterReducer = (state=INITAL_STATE, action) => {
             return {
                 ...state,
                 characters: action.payload,
+                character: null,
                 error: false,
                 loading: false
             }
-
+        case characterTypes.GET_CHARACTER:
+            return {
+                ...state,
+                character: action.payload,
+                error: false,
+                loading: false
+            }
         default:
             return state
     }

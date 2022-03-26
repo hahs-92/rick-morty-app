@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom'
 export const Header = () => {
 
     return (
-        <section className='p-2 h-24 flex flex-col justify-between bg-green-400 sm:flex-row'>
+        <section className='p-2 h-24 flex flex-col shadow-lg justify-between bg-green-400 sm:flex-row'>
             <header className='text-2xl text-center sm:flex items-center' >
                 <Link to="/">RickAndMorty</Link>
             </header>
