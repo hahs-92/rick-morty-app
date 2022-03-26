@@ -22,6 +22,26 @@ export const getCharacters = (query) => async(dispatch) => {
     }
 }
 
+export const getCharactersSearch = (query) => async(dispatch) => {
+    dispatch({
+        type: characterTypes.LOADING
+    })
+
+    try {
+        const {data: { results }} = await axios.get(query)
+
+        dispatch({
+            type: characterTypes.GET_CHARACTERS_SEARCHED,
+            payload: results
+        })
+    } catch(e) {
+
+        dispatch({
+            type: characterTypes.ERROR
+        })
+    }
+}
+
 export const getCharacter = (query) => async(dispatch) => {
     dispatch({
         type: characterTypes.LOADING

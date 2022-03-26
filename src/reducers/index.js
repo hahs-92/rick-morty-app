@@ -17,6 +17,13 @@ export const characterReducer = (state=INITAL_STATE, action) => {
                 error: false,
                 loading: false
             }
+        case characterTypes.GET_CHARACTERS_SEARCHED:
+            return {
+                ...state,
+                charactersSearched: action.payload,
+                error: false,
+                loading: false
+            }
         case characterTypes.GET_CHARACTER:
             return {
                 ...state,
