@@ -119,3 +119,10 @@ export const setPage = (page) => async(dispatch) => {
         payload: page
     })
 }
+
+export const setQuery = (query) => async(dispatch) => {
+    dispatch({
+        type: characterTypes.SET_QUERY,
+        payload: query
+    })
+}

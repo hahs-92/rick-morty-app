@@ -28,7 +28,7 @@ export const Form = () => {
                     onChange={handleOnChange}
                 />
                 <input
-                    className="w-full sm:w-56 h-11 border cursor-pointer rounded-full text-green-100 bg-green-500"
+                    className="w-full sm:w-56 h-11 cursor-pointer rounded-full text-green-100 bg-emerald-600 hover:scale-105 transition"
                     type="submit"
                     value={ loading ? "loading.." : "Search"}
                 />

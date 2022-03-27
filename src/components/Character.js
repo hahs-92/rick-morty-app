@@ -21,8 +21,8 @@ export const Character = ({
                     className='w-full sepia-0'
                 />
             </section>
-            <section className='invisible flex flex-col justify-center items-center group-hover:absolute inset-0 group-hover:visible'>
-                <h3 className='text-2xl text-green-900'>{ name }</h3>
+            <section className='invisible flex flex-col justify-center items-center group-hover:absolute inset-0 group-hover:visible truncate'>
+                <h3 className='text-2xl text-green-900 '>{ name }</h3>
                 <h3 className='text-xl text-green-800'>{ specie }</h3>
             </section>
         </article>

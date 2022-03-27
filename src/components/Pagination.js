@@ -1,6 +1,7 @@
 // libraries and hooks
 import {  useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon} from '@heroicons/react/outline'
 //actions creator
 import { setPage } from '../actions'
 //components
@@ -63,10 +64,10 @@ export const Pagination = ({totalPages}) => {
 		<section className="mt-8 w-full max-w-xs flex justify-between">
 			<button
 				onClick={goToPreviousPage}
-				className="p-2 h-12 bg-emerald-600 text-emerald-50 border rounded-2xl"
+				className="p-2 h-12 w-14 bg-emerald-600 text-emerald-50 border rounded-2xl"
 				disabled={currentPage === allPages[0]}
 			>
-				Previous
+				<ChevronDoubleLeftIcon className="w-full h-full"/>
 			</button>
 			<ul className="flex justify-between items-center w-full mx-1">
 				{
@@ -75,10 +76,10 @@ export const Pagination = ({totalPages}) => {
 			</ul>
 			<button
 				onClick={goToNextPage}
-				className="p-2 h-12 w-28 bg-emerald-600 text-emerald-50 border rounded-2xl"
+				className="p-2 h-12 w-14 bg-emerald-600 text-emerald-50 border rounded-2xl"
 				disabled={currentPage === allPages.length }
 			>
-				Next
+				<ChevronDoubleRightIcon className="w-full h-full"/>
 			</button>
 		</section>
 	)

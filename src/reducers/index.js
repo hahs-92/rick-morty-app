@@ -62,6 +62,11 @@ export const characterReducer = (state=INITAL_STATE, action) => {
                 ...state,
                 page: action.payload
             }
+        case characterTypes.SET_QUERY:
+            return {
+                ...state,
+                query: action.payload
+            }
         default:
             return state
     }

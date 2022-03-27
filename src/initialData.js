@@ -6,6 +6,7 @@ export const INITAL_STATE = {
     character: null,
     totalPages: 0,
     page: 1,
+    query: { key: "", value: ""},
     loading: false,
     error: false,
 }
