@@ -2,7 +2,7 @@
   "name": "rick-morty-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://hahs-92.github.io/",
+  "homepage": "https://hahs-92.github.io/rick-morty-app",
   "dependencies": {
     "@heroicons/react": "^1.0.6",
     "@testing-library/jest-dom": "^5.16.3",
