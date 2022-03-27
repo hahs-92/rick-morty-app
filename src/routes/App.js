@@ -1,7 +1,7 @@
 import {BrowserRouter,Route,Routes } from 'react-router-dom'
 //pages
 import { Dashboard } from '../pages/Dashboard'
-import { CharacterDetail } from '../pages/CharacterDetail'
+import { Detail } from '../pages/Detail'
 import { Favorites } from '../pages/Favorites'
 import { Locations } from '../pages/Locations'
 //components
@@ -15,7 +15,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={ <Dashboard />} />
-        <Route path="character/:id" element={ <CharacterDetail />} />
+        <Route path="character/:id" element={ <Detail />} />
         <Route path="categories" element={ <Locations />} />
         <Route path="favorites" element={ <Favorites />} />
         <Route path="*" element={<h1>Not found</h1>} />
