@@ -1,4 +1,4 @@
-import {BrowserRouter,Route,Routes } from 'react-router-dom'
+import {BrowserRouter,Route,Routes, Navigate } from 'react-router-dom'
 //pages
 import { Dashboard } from '../pages/Dashboard'
 import { Detail } from '../pages/Detail'
@@ -18,7 +18,7 @@ function App() {
         <Route path="character/:id" element={ <Detail />} />
         <Route path="favorites" element={ <Favorites />} />
         <Route path="collections" element={ <Collection />} />
-        <Route path="*" element={<h1>Not found</h1>} />
+        <Route path="*" element={ <Navigate to="/" replace /> } />
       </Routes>
     </BrowserRouter>
 
