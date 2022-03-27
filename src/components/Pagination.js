@@ -71,7 +71,9 @@ export const Pagination = ({totalPages}) => {
 			</button>
 			<ul className="flex justify-between items-center w-full mx-1">
 				{
-                    currentPages.map(pageNumber => (<PageButton key={pageNumber} pageNumber={pageNumber} currentPage={currentPage}/>))
+                    currentPages.map(pageNumber => (
+					<PageButton key={pageNumber} pageNumber={pageNumber} currentPage={currentPage}/>
+					))
                 }
 			</ul>
 			<button
