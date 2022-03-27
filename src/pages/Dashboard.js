@@ -7,25 +7,27 @@ import { Character } from '../components/Character'
 import { Form } from "../components/Form"
 import { CharacterItem } from "../components/CharacterItem"
 import { ListCharacters } from "../components/ListCharacters"
+import { Pagination } from "../components/Pagination"
 
 
 export const Dashboard = () => {
     const dispatch = useDispatch()
     const characters = useSelector(state => state.characters)
-    const  charactersSearched = useSelector(state => state.charactersSearched)
+    const charactersSearched = useSelector(state => state.charactersSearched)
+    const totalPages = useSelector(state => state.totalPages)
+    const page = useSelector(state => state.page)
 
     const fecthData = () => {
-        dispatch(getCharacters("https://rickandmortyapi.com/api/character/?page=1"))
+        dispatch(getCharacters(`https://rickandmortyapi.com/api/character/?page=${page}`))
     }
 
     useEffect(() => {
         fecthData()
-    },[])
+    },[page])
 
 
     return (
-        <main className="mt-3 p-3">
-
+        <main className="flex flex-wrap justify-center mt-3 p-3">
             <Form />
             <ListCharacters>
                 {
@@ -51,6 +53,7 @@ export const Dashboard = () => {
                     ))
                 }
             </ListCharacters>
+            <Pagination totalPages={totalPages}/>
         </main>
     )
 }

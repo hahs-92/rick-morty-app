@@ -12,7 +12,8 @@ export const characterReducer = (state=INITAL_STATE, action) => {
         case characterTypes.GET_CHARACTERS:
             return {
                 ...state,
-                characters: action.payload,
+                characters: action.payload.results,
+                totalPages: action.payload.totalPages,
                 character: null,
                 error: false,
                 loading: false
@@ -55,6 +56,11 @@ export const characterReducer = (state=INITAL_STATE, action) => {
                 ...state,
                 favorites: state.favorites.filter(char => char.id !== action.payload),
                 error: false,
+            }
+        case characterTypes.SET_PAGE:
+            return {
+                ...state,
+                page: action.payload
             }
         default:
             return state

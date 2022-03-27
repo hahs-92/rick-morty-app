@@ -8,11 +8,11 @@ export const getCharacters = (query) => async(dispatch) => {
     })
 
     try {
-        const {data: { results }} = await axios.get(query)
+        const {data: { results, info }} = await axios.get(query)
 
         dispatch({
             type: characterTypes.GET_CHARACTERS,
-            payload: results
+            payload: {results,  totalPages: info.pages }
         })
     } catch(e) {
 
@@ -110,4 +110,12 @@ export const getCharacter = (query) => async(dispatch) => {
             type: characterTypes.ERROR
         })
     }
+}
+
+
+export const setPage = (page) => async(dispatch) => {
+    dispatch({
+        type: characterTypes.SET_PAGE,
+        payload: page
+    })
 }

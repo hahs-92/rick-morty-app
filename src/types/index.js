@@ -7,5 +7,5 @@ export const characterTypes = {
     REMOVE_CHARACTER_DEV: "REMOVE_CHARACTER_DEV",
     LOADING: "LOADING",
     ERROR: "ERROR",
-    PAGECHANGE: "PAGECHANGE"
+    SET_PAGE: "SET_PAGE"
 }
