@@ -39,7 +39,7 @@ export const characterReducer = (state=INITAL_STATE, action) => {
                 loading: false
             }
         case characterTypes.ADD_CHARACTER_FAV:
-            return {
+            const newState = {
                 ...state,
                 favorites: [
                     ...state.favorites,
@@ -47,7 +47,10 @@ export const characterReducer = (state=INITAL_STATE, action) => {
                 ],
                 error: false,
             }
+            window.localStorage.setItem("favs", JSON.stringify(newState.favorites))
+            return newState
         case characterTypes.REMOVE_CHARACTER_DEV:
+            window.localStorage.setItem("favs", JSON.stringify([ ...state.favorites.filter(char => char.id !== action.payload)]))
             return {
                 ...state,
                 favorites: state.favorites.filter(char => char.id !== action.payload),
