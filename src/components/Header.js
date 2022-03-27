@@ -1,10 +1,15 @@
 import { NavLink, Link } from 'react-router-dom'
+import {
+    HomeIcon,
+    HeartIcon,
+    CollectionIcon,
+} from '@heroicons/react/outline'
 
 export const Header = () => {
 
     return (
-        <section className='p-2 h-24 flex flex-col shadow-lg justify-between bg-green-400 sm:flex-row'>
-            <header className='text-2xl text-center sm:flex items-center' >
+        <section className='p-4 h-32 flex flex-col shadow-lg justify-between bg-green-400 sm:flex-row'>
+            <header className='text-2xl text-center sm:flex items-center hover:animate-pulse' >
                 <Link to="/">RickAndMorty</Link>
             </header>
 
@@ -12,23 +17,23 @@ export const Header = () => {
                 <ul
                     className='flex items-center justify-between h-full text-lg'
                 >
-                    <li >
+                    <li className='group' >
                         <NavLink
-                            className= {({isActive}) => isActive ? "text-green-100" : "text-black"}
-                            to="/">Home
+                            className= {({isActive}) => isActive ? "text-green-50" : "text-black"}
+                            to="/"> <HomeIcon  className='w-11 h-11 group-hover:animate-bounce' />
                         </NavLink>
                     </li>
 
-                    <li>
+                    <li className='group' >
                         <NavLink
-                            className= {({isActive}) => isActive ? "text-green-100" : "text-black"}
-                            to="/categories">Categories
+                            className= {({isActive}) => isActive ? "text-green-50" : "text-black"}
+                            to="/categories"> <CollectionIcon className='w-11 h-11 group-hover:animate-bounce' />
                         </NavLink>
                     </li>
-                    <li>
+                    <li className='group' >
                         <NavLink
-                            className= {({isActive}) => isActive ? "text-green-100" : "text-black"}
-                            to="/favorites">Favorites
+                            className= {({isActive}) => isActive ? "text-green-50" : "text-black"}
+                            to="/favorites"> <HeartIcon className='w-11 h-11 group-hover:animate-bounce' />
                         </NavLink>
                     </li>
                 </ul>

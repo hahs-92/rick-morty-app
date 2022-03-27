@@ -48,6 +48,7 @@ export const Dashboard = () => {
                             key={char.id }
                             id={ char.id }
                             name={ char.name }
+                            specie={ char.species}
                             image= { char.image }
                         />
                     ))
